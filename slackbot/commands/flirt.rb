@@ -5,10 +5,10 @@ module SlackComplimentBot
       command 'flirt with' do |client, data, _match|
         # puts data
         username = data.text.split(" ").select do |word|
-          word.start_with?("@") && word != "@complimentbot"
+          word.start_with?("<@") && word != "<@complimentbot"
         end
         # user_id = find_user_id(username)
-        client.say(channel: username, text: "you're cute")
+        client.say(channel: data.channel, text: "you're cute")
       end
     end
   end
