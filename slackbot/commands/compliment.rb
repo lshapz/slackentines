@@ -9,6 +9,14 @@ module SlackComplimentBot
         client.say(channel: data.channel, text: data.to_s)
       end
 
+      command 'high five' do |client, data, _match|
+        client.say(channel: data.channel, text: "http://pngimg.com/upload/hands_PNG905.png")
+      end
+
+      command 'hacking', 'hack', 'hackathon', 'hackentine' do |client, data, _match|
+        client.say(channel: data.channel, text: "https://twitter.com/gdinyc")
+      end
+
       command 'emojis' do |client, data, _match|
         slack_emojis = client.web_client.emoji_list[:emoji]
         emoji_list = slack_emojis.map{|k,v| k}.uniq if slack_emojis.present?

@@ -18,7 +18,7 @@ module SlackComplimentBot
         "https://play.spotify.com/track/1Tt4sE4pXi57mTD1GCzsqm", 
         "https://play.spotify.com/track/4JehYebiI9JE8sR8MisGVb"]
 
-      command 'sing to me paolo', 'Sing to me Paolo' do |client, data, _match|
+      command 'sing to me paolo', 'Sing to me Paolo', 'sing to me', 'sing' do |client, data, _match|
         client.say(channel: data.channel, text: @songs.sample)
       end
     end
