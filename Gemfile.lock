@@ -8,6 +8,7 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.5.0)
       public_suffix (~> 2.0, >= 2.0.2)
+    builder (3.2.3)
     celluloid (0.17.3)
       celluloid-essentials
       celluloid-extras
@@ -113,6 +114,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activesupport
+  builder
   celluloid-io
   dotenv
   foreman

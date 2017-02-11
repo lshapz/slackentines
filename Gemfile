@@ -8,6 +8,8 @@ gem 'celluloid-io'
 gem 'require_all'
 gem 'giphy'
 gem 'httparty'
+gem 'activesupport'
+gem 'builder'
 
 group :development, :test do
   gem 'rake'
