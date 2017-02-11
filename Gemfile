@@ -10,6 +10,8 @@ gem 'giphy'
 gem 'httparty'
 gem 'activesupport'
 gem 'builder'
+gem 'dalli'
+gem 'rack'
 
 group :development, :test do
   gem 'rake'
