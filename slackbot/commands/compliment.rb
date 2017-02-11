@@ -19,7 +19,7 @@ module SlackComplimentBot
 
 
       command 'commands', 'help' do |client, data, _match|
-        client.say(channel: data.channel, text: "try: sing, emojis, hack, high five, compliment, inspire me, reassure me, gif me, kitten, pupper")
+        client.say(channel: data.channel, text: "try: sing, emojis, hack, high five, compliment, inspire me, reassure me, gif me, kitten, pupper, or emo + a word that might be in an emoji name")
       end
 
 
@@ -31,7 +31,7 @@ module SlackComplimentBot
       end
 
       command 'emo' do |client, data, match|
-        emoji_keys = data.text[3..-1].strip
+        emoji_keys = data.text[3..-1].strip.downcase
         emoji_keys = emoji_keys.split(/\W/)
         emoji_keys = emoji_keys.reject{ |e| e.strip.empty? }.map { |e| e.strip}
 
