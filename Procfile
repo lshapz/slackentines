@@ -1,1 +1,1 @@
-web: bundle exec ruby slack-complimentbot.rb
+web: bundle exec ruby config.ru
