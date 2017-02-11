@@ -31,7 +31,8 @@ module SlackComplimentBot
       end
 
       command 'emo' do |client, data, match|
-        emoji_keys = data.text[3..-1].strip.downcase
+        emoji_keys = data.text.split('emo').last
+        emoji_keys = emoji_keys[3..-1].strip.downcase
         emoji_keys = emoji_keys.split(/\W/)
         emoji_keys = emoji_keys.reject{ |e| e.strip.empty? }.map { |e| e.strip}
 
@@ -45,8 +46,11 @@ module SlackComplimentBot
         end
 
         emoji_message = emojis.map{ |e| ':' + e + ':' }.join(' ')
-
-        client.say(channel: data.channel, text: "throws a bunch of #{emoji_keys} emojis: #{emoji_message} ")
+        if !emoji_message.empty?
+          client.say(channel: data.channel, text: emoji_message)
+        else
+          client.say(channel: data.channel, text: "No emoji found for #{emoji_keys}")
+        end
       end
     end
   end
