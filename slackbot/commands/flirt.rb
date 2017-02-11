@@ -5,7 +5,7 @@ module SlackComplimentBot
         username = data.text.split(" ").find do |word|
           word.start_with?("<@") && word != "<@complimentbot"
         end
-        p username[2...-2]
+        # p username[2...-2]
         client.say(channel: 'C44TN4QMD', text: 'you all are cute')
       end
     end
