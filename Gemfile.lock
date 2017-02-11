@@ -8,7 +8,6 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.5.0)
       public_suffix (~> 2.0, >= 2.0.2)
-    builder (3.2.3)
     celluloid (0.17.3)
       celluloid-essentials
       celluloid-extras
@@ -31,7 +30,6 @@ GEM
     celluloid-supervision (0.20.6)
       timers (>= 4.1.1)
     concurrent-ruby (1.0.4)
-    dalli (2.7.6)
     diff-lcs (1.3)
     dotenv (2.2.0)
     faraday (0.11.0)
@@ -71,7 +69,6 @@ GEM
     rack-test (0.6.3)
       rack (>= 1.0)
     rake (12.0.0)
-    require_all (1.4.0)
     rspec (3.5.0)
       rspec-core (~> 3.5.0)
       rspec-expectations (~> 3.5.0)
@@ -115,19 +112,14 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activesupport
-  builder
   celluloid-io
-  dalli
   dotenv
   foreman
   giphy
   httparty
   puma
-  rack
   rack-test
   rake
-  require_all
   rspec
   sinatra
   slack-ruby-bot
