@@ -1,4 +1,4 @@
-require './apis/emojis'
+# require '../apis/emojis'
 
 module SlackComplimentBot
   module Commands
