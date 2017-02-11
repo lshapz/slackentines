@@ -16,8 +16,8 @@ module SlackComplimentBot
         emojis2 = client.web_client.send(emoji_list)
 
         client.say(channel: data.channel, text: "Emoji test")
-        client.say(channel: data.channel, text: emojis1.to_s)
-        client.say(channel: data.channel, text: emojis2.to_s)
+        client.say(channel: data.channel, text: "emojis1:" + emojis1.to_s)
+        client.say(channel: data.channel, text: "emojis2:" + emojis2.to_s)
         client.say(channel: data.channel, text: "End of emoji test")
       end
     end
