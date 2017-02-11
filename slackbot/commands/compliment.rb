@@ -12,16 +12,13 @@ module SlackComplimentBot
       end
 
       command 'emojis' do |client, data, _match|
-        slack_client = Slack::Web::Client.new
+        emojis1 = client.web_client.emoji_list[:emoji]
+        emojis2 = client.web_client.send(emoji_list)
 
-        emojis = slack_client.emoji_list[:emoji]
-        if emojis.present?
-          message = emojis.map{|k,v| k}.uniq
-        else
-          message = slack_client.emoji_list
-        end
-
-        client.say(channel: data.channel, text: message.to_s)
+        client.say(channel: data.channel, text: "Emoji test")
+        client.say(channel: data.channel, text: emojis1.to_s)
+        client.say(channel: data.channel, text: emojis2.to_s)
+        client.say(channel: data.channel, text: "End of emoji test")
       end
     end
   end
