@@ -17,12 +17,6 @@ module SlackComplimentBot
         client.say(channel: data.channel, text: "https://twitter.com/gdinyc")
       end
 
-
-      command 'commands', 'help' do |client, data, _match|
-        client.say(channel: data.channel, text: "try: sing, emojis, hack, high five, compliment, inspire me, reassure me, gif me, kitten, pupper, or emo + a word that might be in an emoji name")
-      end
-
-
       command 'emojis' do |client, data, _match|
         slack_emojis = client.web_client.emoji_list[:emoji]
         emoji_list = slack_emojis.map{|k,v| k}.uniq if slack_emojis.present?
