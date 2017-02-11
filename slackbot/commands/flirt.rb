@@ -1,4 +1,3 @@
-require 'byebug'
 module SlackComplimentBot
   module Commands
     class Flirt < SlackRubyBot::Commands::Base
@@ -9,7 +8,7 @@ module SlackComplimentBot
         # end
         # p username[0][2...-2]
         # user_id = find_user_id(username)
-        client.say(channel: 'C44TN4QMD', text: 'you all are cute', as_user: false)
+        client.say(channel: 'C44TN4QMD', text: 'you all are cute')
       end
     end
   end
