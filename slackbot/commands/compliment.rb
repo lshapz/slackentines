@@ -16,7 +16,9 @@ module SlackComplimentBot
         client.say(channel: data.channel, text: emoji_list.to_s)
       end
 
-      match(/^emoji (?<emoji_key>\w*)\?$/i) do |client, data, match|
+      match(/^emoji (?<emoji_key>\w*)$/i) do |client, data, match|
+        client.say(channel: data.channel, text: "Emoji key" + match[:emoji_key])
+
         slack_emojis = client.web_client.emoji_list[:emoji]
         emoji_list = slack_emojis.map{|k,v| k}.uniq if slack_emojis.present?
         emoji_list ||= []
