@@ -16,14 +16,16 @@ module SlackComplimentBot
         client.say(channel: data.channel, text: emoji_list.to_s)
       end
 
-      match(/^emoji (?<emoji_key>\w*)$/i) do |client, data, match|
-        client.say(channel: data.channel, text: "Emoji key" + match[:emoji_key])
+      command 'emo' do |client, data, match|
+        emoji_keys = data.text[3..-1].strip
+        emoji_keys = emoji_keys.split(/\W/)
+        emoji_keys = emoji_keys.reject{ |e| e.strip.empty? }.map { |e| e.strip}
 
         slack_emojis = client.web_client.emoji_list[:emoji]
         emoji_list = slack_emojis.map{|k,v| k}.uniq if slack_emojis.present?
         emoji_list ||= []
 
-        emojis = emoji_list.select{ |e| e.include?(match[:emoji_key])}
+        emojis = emoji_list.select{ |e| emoji_keys.include?(e)}
         emoji_message = emojis.map{ |e| ':' + e }.join(' ')
 
         client.say(channel: data.channel, text: "threws a bunch of emojis: #{emoji_message} ")
