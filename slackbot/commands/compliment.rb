@@ -18,7 +18,7 @@ module SlackComplimentBot
       match(/^emoji (?<emoji_key>\w*)\?$/i) do |client, data, match|
         emojis = SlackWebClient.Emojis.get_emojis_with_name(match[:emoji_key])
         emoji_message = emojis.map{ |e| ':' + e }.join(' ')
-        client.say(channel: data.channel, text: "The weather in #{emoji_message} is nice.")
+        client.say(channel: data.channel, text: "threws a bunch of emojis: #{emoji_message} ")
       end
     end
   end
