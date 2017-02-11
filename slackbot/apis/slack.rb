@@ -1,5 +1,5 @@
 require 'httparty'
-require '../../config/secrets'
+# require '../../config/secrets'
 
 def find_user_id(username)
   url = "https://slack.com/api/users.list?token=#{ORG_TOKEN}&pretty=1"
