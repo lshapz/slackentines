@@ -17,7 +17,7 @@ module SlackComplimentBot
           message = client.emoji_list
         end
 
-        client.say(channel: data.channel, text: message)
+        client.say(channel: data.channel, text: message.to_s)
       end
     end
   end
