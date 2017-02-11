@@ -32,6 +32,7 @@ module SlackComplimentBot
 
       command 'emo' do |client, data, match|
         emoji_keys = data.text[3..-1].strip
+        client.say(channel: data.channel, text: emoji_keys)
         emoji_keys = emoji_keys.split(/\W/)
         emoji_keys = emoji_keys.reject{ |e| e.strip.empty? }.map { |e| e.strip}
 
