@@ -1,14 +1,22 @@
-require 'byebug'
 module SlackComplimentBot
   module Commands
     class Flirt < SlackRubyBot::Commands::Base
       command 'flirt with' do |client, data, _match|
         # puts data
         username = data.text.split(" ").select do |word|
+<<<<<<< HEAD
           word.start_with?("<@") && word != "<@complimentbot"
+=======
+          word.start_with?("<@") 
+>>>>>>> flirt
         end
+        p username[0][2...-2]
         # user_id = find_user_id(username)
+<<<<<<< HEAD
+        client.say(channel: data.channel, text: "you're cute")
+=======
         client.say(channel: username[0][2...-2], text: 'you are cute')
+>>>>>>> flirt
       end
     end
   end
