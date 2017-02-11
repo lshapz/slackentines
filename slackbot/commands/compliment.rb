@@ -1,3 +1,4 @@
+# require ''
 module SlackComplimentBot
   module Commands
     class Compliment < SlackRubyBot::Commands::Base
@@ -10,6 +11,8 @@ module SlackComplimentBot
       end
 
       command 'emojis' do |client, data, _match|
+        # client.methods
+        
         emojis = client.emoji_list[:emoji]
         if emojis.present?
           message = emojis.map{|k,v| k}.uniq
