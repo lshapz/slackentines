@@ -46,7 +46,7 @@ module SlackComplimentBot
 
         emoji_message = emojis.map{ |e| ':' + e + ':' }.join(' ')
 
-        client.say(channel: data.channel, text: "threws a bunch of #{emoji_keys} emojis: #{emoji_message} ")
+        client.say(channel: data.channel, text: "throws a bunch of #{emoji_keys} emojis: #{emoji_message} ")
       end
     end
   end
