@@ -7,6 +7,7 @@ gem 'dotenv'
 gem 'celluloid-io'
 gem 'require_all'
 gem 'giphy'
+gem 'byebug'
 
 group :development, :test do
   gem 'rake'
