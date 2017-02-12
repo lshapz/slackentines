@@ -25,14 +25,8 @@ module SlackComplimentBot
       end
 
       command 'emo' do |client, data, match|
-        emoji_keys = data.text.split('emo').last
-        emoji_keys = emoji_keys[0..-1].strip.downcase
-        emoji_keys = emoji_keys.split(/\W/)
-        emoji_keys = emoji_keys.reject{ |e| e.strip.empty? }.map { |e| e.strip}
-
-        slack_emojis = client.web_client.emoji_list[:emoji]
-        emoji_list = slack_emojis.map{|k,v| k}.uniq if !slack_emojis.empty?
-        emoji_list ||= []
+        emoji_keys = get_emoji_keys(data_text)
+        emoji_list = get_custom_emoji(client.web_client) + get_default_emoji
 
         emojis = []
         emoji_keys.each do |key|
@@ -45,6 +39,29 @@ module SlackComplimentBot
         else
           client.say(channel: data.channel, text: "No emoji found for #{emoji_keys}")
         end
+      end
+
+      def get_emoji_keys(data_text)
+        emoji_keys = data_text.split('emo').last
+        emoji_keys = emoji_keys[0..-1].strip.downcase
+        emoji_keys = emoji_keys.split(/\W/)
+        emoji_keys = emoji_keys.reject{ |e| e.strip.empty? }.map { |e| e.strip}
+        return emoji_keys
+      end
+
+      def get_custom_emoji(slack_client)
+        slack_emojis = slack_client.emoji_list[:emoji]
+        emoji_list = slack_emojis.map{|k,v| k}.uniq if !slack_emojis.empty?
+        emoji_list ||= []
+        return emoji_list
+      end
+
+      def get_default_emoji
+        emoji = []
+        File.open('../../emoji.txt').each do |line|
+          emoji << line
+        end
+        return emoji
       end
     end
   end
